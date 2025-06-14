@@ -1,0 +1,21 @@
+name: Node lint
+run-name: Lint nodejs app
+on: [push]
+jobs:
+  lint:
+    runs-on: [self-hosted]  # O usa 'ubuntu-latest' si no tienes un runner auto-hospedado
+    steps:
+      - name: Descargar el repo
+        uses: actions/checkout@v4
+      - name: Usar nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+      - name: Instalar dependencias
+        working-directory: ./calculadora
+        run: |
+          npm install
+      - name: Ejecutar Linter
+        working-directory: ./calculadora
+        run: |
+          npm run lint  # Asegúrate de tener configurado un script de lint en tu package.json
