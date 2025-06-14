@@ -3,7 +3,7 @@ run-name: Test nodejs app
 on: [push]
 jobs:
   test:
-    runs-on: [self-hosted]  # O usa 'ubuntu-latest' si no tienes un runner auto-hospedado
+    runs-on: [self-hosted]
     steps:
       - name: Descargar el repo
         uses: actions/checkout@v4
