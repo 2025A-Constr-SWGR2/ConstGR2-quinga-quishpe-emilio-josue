@@ -1,8 +1,8 @@
-name: Node lint
-run-name: Lint nodejs app
+name: Node test
+run-name: Test nodejs app
 on: [push]
 jobs:
-  lint:
+  test:
     runs-on: [self-hosted]  # O usa 'ubuntu-latest' si no tienes un runner auto-hospedado
     steps:
       - name: Descargar el repo
@@ -15,7 +15,7 @@ jobs:
         working-directory: ./calculadora
         run: |
           npm install
-      - name: Ejecutar Linter
+      - name: Ejecutar pruebas
         working-directory: ./calculadora
         run: |
-          npm run lint
+          npm run test
